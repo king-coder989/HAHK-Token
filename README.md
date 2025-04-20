@@ -1,73 +1,44 @@
-# Welcome to your Lovable project
+# ⚔️ HAHK Token: The Blockchain Guillotine for Dirty Roommates  
 
-## Project info
+**"Roommate hasn't showered in 3 days? Their ETH balance is about to feel the same stench."**  
 
-**URL**: https://lovable.dev/projects/3236084b-d755-48fc-a097-c203a0b1007b
+## 🔥 The Filthy Truth  
+Every shared living space has that *one degenerate* who treats hygiene like a suggestion. Traditional shaming doesn't work. WhatsApp groups flood with complaints. Landlords ignore the crisis. **The world needed a decentralized solution.**  
 
-## How can I edit this code?
+Enter **HAHK Token** (Haddi Alag Kar Denge Token) - where blockchain meets bathroom accountability.  
 
-There are several ways of editing your application.
+## ⚡ Why Judges Will Care  
+This isn't just another "me-too" DeFi project. We weaponize:  
+- **Smart Contract Shame** - On-chain shower logs (immutable proof of laziness)  
+- **Staked ETH Penalties** - Skip showers → fund the cleanest roommate  
+- **7-Day Purification Wars** - Winner takes the stinkers' crypto  
 
-**Use Lovable**
+## 🛠️ Tech That Doesn't Stink  
+```solidity
+[ Ethereum | Solidity | React | Supabase | Sepolia Testnet ]
+```  
+*"More reliable than your roommate's shower schedule"*  
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3236084b-d755-48fc-a097-c203a0b1007b) and start prompting.
+## 🚀 How It Works  
+1. **Stake ETH** - Lock funds as hygiene collateral  
+2. **Log Showers** - Mint your cleanliness NFT (yes, really)  
+3. **Enforce Justice** - After 7 days, the cleanest claims the pool  
 
-Changes made via Lovable will be committed automatically to this repo.
+## 💀 Differentiator? We Bring Violence  
+Others build "friendly reminder apps". **We built:**  
+- A **public stink leaderboard**  
+- **Auto-slashing** of ETH for offenders  
+- **Emergency Shower Airdrops** (SOS alerts to roommates)  
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/your-username/hahk-token.git
+npm install
 npm run dev
-```
+```  
+*Warning: May cause sudden improvement in roommate behavior*  
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+**This isn't a README. It's a declaration of war against bad hygiene.** Deploy at your own risk.  
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/3236084b-d755-48fc-a097-c203a0b1007b) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+> *"The blockchain never forgets. Neither will your nose."*

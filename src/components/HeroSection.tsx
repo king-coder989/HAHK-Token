@@ -1,5 +1,6 @@
+
 import React, { useState, useRef } from 'react';
-import { ShowerHead } from 'lucide-react';
+import { ShowerHead, Trophy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
 import { logShower } from '@/services/showerLogs';
@@ -71,23 +72,25 @@ export const HeroSection = () => {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-lg p-8 mb-12 shower-card">
+    <div className="relative overflow-hidden rounded-lg p-8 mb-12 backdrop-blur-xl bg-space-overlay border border-space-accent/20">
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-4">
-          <ShowerHead className="w-12 h-12 text-purple-400" />
-          <h2 className="text-4xl font-bold text-glow">Prove Your Cleanliness 🛁</h2>
+          <ShowerHead className="w-12 h-12 text-teal-glow" />
+          <h2 className="text-4xl font-bold bg-premium-gradient bg-clip-text text-transparent">
+            Your Hygiene is Your Reputation 💎
+          </h2>
         </div>
-        <p className="text-xl mb-2 text-purple-200">
-          Stake ETH, log your showers, and claim your reward for being the cleanest roommate! 🚿
+        <p className="text-xl mb-2 text-space-accent/80">
+          Hygiene Credit Score: <span className="text-teal-glow font-mono">742/800</span>
         </p>
-        <p className="text-lg mb-6 text-purple-300">
-          Last shower: {timeSinceLastShower}
+        <p className="text-lg mb-6 text-space-accent/60 font-mono">
+          Last verified: {timeSinceLastShower}
         </p>
         
         {!user ? (
           <Link to="/auth">
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50">
-              Sign In to Start 🚿
+            <Button className="bg-teal-glow text-space hover:bg-teal-glow/90 px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-teal-glow/20">
+              Verify Your Elite Status 💫
             </Button>
           </Link>
         ) : (
@@ -95,9 +98,9 @@ export const HeroSection = () => {
             <Button 
               onClick={handleLogShower}
               disabled={loading || !wallet}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50"
+              className="bg-premium-gradient hover:opacity-90 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-violet-end/20"
             >
-              {loading ? 'Processing...' : 'Log Shower 🚿'}
+              {loading ? 'Minting...' : 'Mint Your Clean NFT 🛁✨'}
             </Button>
             
             {!wallet ? (
@@ -105,22 +108,22 @@ export const HeroSection = () => {
                 onClick={handleConnectWallet}
                 disabled={loading}
                 variant="outline"
-                className="border-purple-500 text-purple-400 hover:bg-purple-500/20 px-8 py-6 text-lg rounded-full"
+                className="border-space-accent/20 text-space-accent hover:bg-space-overlay px-8 py-6 text-lg rounded-full"
               >
-                Connect Wallet
+                <Trophy className="w-5 h-5 mr-2" /> Verify Your Elite Status
               </Button>
             ) : (
               <Button 
                 variant="outline"
-                className="border-purple-500 text-purple-400 hover:bg-purple-500/20 px-8 py-6 text-lg rounded-full"
+                className="border-space-accent/20 text-space-accent hover:bg-space-overlay px-8 py-6 text-lg rounded-full"
               >
-                Wallet: {wallet.substring(0, 6)}...{wallet.substring(wallet.length - 4)}
+                Connected: {wallet.substring(0, 6)}...{wallet.substring(wallet.length - 4)}
               </Button>
             )}
           </div>
         )}
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm -z-10" />
+      <div className="absolute inset-0 bg-premium-gradient opacity-5 -z-10" />
       <audio ref={audioRef} src="https://assets.mixkit.co/active_storage/sfx/2515/2515-preview.mp3" />
     </div>
   );

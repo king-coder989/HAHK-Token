@@ -1,4 +1,7 @@
 # ⚔️ HAHK Token: The Blockchain Guillotine for Dirty Roommates  
+## "HAHK (Haddi Alag Kar Denge) Token" (Next-level threat for stinkers)
+
+### Tagline: "Shower skip kiya? HAHK se ETH kaat ke dikha denge!"
 
 **"Roommate hasn't showered in 3 days? Their ETH balance is about to feel the same stench."**  
 

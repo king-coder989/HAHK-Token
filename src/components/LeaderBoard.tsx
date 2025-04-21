@@ -4,7 +4,7 @@ import { Trophy } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import type { Database, Profile } from '@/types/database';
+import { Profile } from '@/types/database';
 
 type ProfileWithShowers = Profile & {
   shower_count: number;
@@ -54,7 +54,7 @@ export const LeaderBoard = () => {
               shower_count: showerCount,
               last_shower: lastShower?.[0]?.timestamp || null,
               tier: showerCount >= 10 ? 'gold' : showerCount >= 5 ? 'silver' : 'bronze'
-            };
+            } as ProfileWithShowers;
           })
         );
 

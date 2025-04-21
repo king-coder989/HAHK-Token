@@ -3,8 +3,8 @@ import React, { useState, useRef } from 'react';
 import { ShowerHead, Trophy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
-import { logShower } from '@/services/showerLogs';
-import { connectWallet, logShowerOnChain } from '@/utils/ethereum';
+import { connectWallet } from '@/utils/ethereum';
+import { handleLogShower } from '@/actions';
 import { toast } from 'sonner';
 import { Link } from 'react-router-dom';
 import { useLastShower } from '@/hooks/useLastShower';
@@ -40,7 +40,7 @@ export const HeroSection = () => {
     }
   };
 
-  const handleLogShower = async () => {
+  const handleLogShowerClick = async () => {
     if (!user) {
       toast.error('Please sign in to log a shower');
       return;
@@ -53,19 +53,16 @@ export const HeroSection = () => {
 
     setLoading(true);
     try {
-      console.log("Logging shower...");
+      console.log("Minting clean NFT...");
       
       playShowerSound();
       
-      const success = await logShower(user.id);
-      if (!success) throw new Error('Failed to log shower to database');
+      const success = await handleLogShower(user.id);
+      if (!success) throw new Error('Failed to mint clean NFT');
       
-      const onChainSuccess = await logShowerOnChain(wallet);
-      if (!onChainSuccess) throw new Error('Failed to log shower to blockchain');
-      
-      toast.success('Shower logged successfully! 🚿');
+      toast.success('Clean NFT minted successfully! 🛁✨');
     } catch (error: any) {
-      toast.error(error.message || 'Error logging shower');
+      toast.error(error.message || 'Error minting clean NFT');
     } finally {
       setLoading(false);
     }
@@ -96,7 +93,7 @@ export const HeroSection = () => {
         ) : (
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
-              onClick={handleLogShower}
+              onClick={handleLogShowerClick}
               disabled={loading || !wallet}
               className="bg-premium-gradient hover:opacity-90 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-violet-end/20"
             >

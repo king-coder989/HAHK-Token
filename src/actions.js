@@ -1,46 +1,90 @@
-import { ethers } from "ethers";
-import { CONTRACT_ADDRESS, CONTRACT_ABI } from "./contractConfig";
 
-const getContract = async () => {
-  if (!window.ethereum) throw new Error("MetaMask not found");
+import { logShowerOnChain, slashUser, rewardClean, exitRoom, joinRoom } from "./utils/ethereum";
+import { logShower } from "./services/showerLogs";
+import { toast } from "sonner";
 
-  const provider = new ethers.BrowserProvider(window.ethereum);
-  const signer = await provider.getSigner();
-  return new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
-};
-
-export const slash = async () => {
+export const handleLogShower = async (userId) => {
   try {
-    const contract = await getContract();
-    const tx = await contract.slash();
-    await tx.wait();
-    alert("User has been slashed!");
+    if (!userId) {
+      toast.error("Please sign in to log a shower");
+      return false;
+    }
+    
+    // First log to database
+    const dbSuccess = await logShower(userId);
+    if (!dbSuccess) {
+      throw new Error("Failed to log shower to database");
+    }
+    
+    // Then log to blockchain
+    const blockchainSuccess = await logShowerOnChain();
+    if (!blockchainSuccess) {
+      // Continue anyway, but notify user
+      toast.warning("Logged to database but blockchain update failed");
+      return true;
+    }
+    
+    toast.success("Shower verified on blockchain! 🚿✨");
+    return true;
   } catch (err) {
     console.error(err);
-    alert("Slash failed.");
+    toast.error("Shower verification failed");
+    return false;
   }
 };
 
-export const rewardClean = async () => {
+export const handleSlashUser = async () => {
   try {
-    const contract = await getContract();
-    const tx = await contract.rewardClean();
-    await tx.wait();
-    alert("Cleanliness rewarded!");
+    const success = await slashUser();
+    if (!success) {
+      throw new Error("Slash operation failed");
+    }
+    return true;
   } catch (err) {
     console.error(err);
-    alert("Reward failed.");
+    toast.error("Failed to slash user");
+    return false;
   }
 };
 
-export const exit = async () => {
+export const handleRewardClean = async () => {
   try {
-    const contract = await getContract();
-    const tx = await contract.exit();
-    await tx.wait();
-    alert("Exited room successfully!");
+    const success = await rewardClean();
+    if (!success) {
+      throw new Error("Reward operation failed");
+    }
+    return true;
   } catch (err) {
     console.error(err);
-    alert("Exit failed.");
+    toast.error("Failed to reward cleanliness");
+    return false;
+  }
+};
+
+export const handleExit = async () => {
+  try {
+    const success = await exitRoom();
+    if (!success) {
+      throw new Error("Exit operation failed");
+    }
+    return true;
+  } catch (err) {
+    console.error(err);
+    toast.error("Failed to exit room");
+    return false;
+  }
+};
+
+export const handleJoinRoom = async () => {
+  try {
+    const success = await joinRoom();
+    if (!success) {
+      throw new Error("Join operation failed");
+    }
+    return true;
+  } catch (err) {
+    console.error(err);
+    toast.error("Failed to join room");
+    return false;
   }
 };

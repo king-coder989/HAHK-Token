@@ -1,4 +1,4 @@
-*Warning: Deployment is done on testnet*  
+*Update: Deployment work is completed on testnet*  
 # ⚔️ HAHK Token: The Blockchain Guillotine for Dirty Roommates  
 ## "HAHK (Haddi Alag Kar Denge) Token" (Next-level threat for stinkers)
 
